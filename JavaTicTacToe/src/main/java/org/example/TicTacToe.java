@@ -29,6 +29,36 @@ public class TicTacToe {
         System.out.println("_____________");
     }
 
+    public static char getPlayerChoice(Scanner in){
+
+        int playerChoice;
+        char playerPiece = 0;
+        turn = "X";
+
+        //there is a bug in this while loop.  entering a letter will get a mismatch exception
+        while (playerPiece == 0) {
+            System.out.println("Please select 1 for X or 2 for O to begin playing");
+            playerChoice = in.nextInt();
+            if (playerChoice == 1) {
+                playerPiece = 'X';
+            } else if (playerChoice == 2) {
+                playerPiece = 'O';
+            } else {
+                System.out.println("That is not a valid choice please try again!");
+            }
+        }
+
+        if (playerPiece == 'X') {
+            System.out.println("Player X goes first! You chose: " + playerPiece);
+            System.out.println("You get to go first");
+        } else {
+            System.out.println("Player X goes first! You chose: " + playerPiece);
+            System.out.println("The other person gets to go first");
+        }
+
+        return playerPiece;
+    }
+
     public static String checkWinner() {
         for (int a = 0; a < 8; a++) {
             String line = null;
@@ -81,38 +111,19 @@ public class TicTacToe {
 
     public static void main(String[] args) {
 
-        int playerChoice;
-        char playerPiece = 0;
+//        int playerChoice;
+//        char playerPiece = 0;
         turn = "X";
 
         Scanner in = new Scanner(System.in);
 
-        //there is a bug in this while loop.  entering a letter will get a mismatch exception
-        while (playerPiece == 0) {
-            System.out.println("Please select 1 for X or 2 for O to begin playing");
-            playerChoice = in.nextInt();
-            if (playerChoice == 1) {
-                playerPiece = 'X';
-            } else if (playerChoice == 2) {
-                playerPiece = 'O';
-            } else {
-                System.out.println("That is not a valid choice please try again!");
-            }
-        }
-
-        if (playerPiece == 'X') {
-            System.out.println("Player X goes first! You chose: " + playerPiece);
-            System.out.println("You get to go first");
-        } else {
-            System.out.println("Player X goes first! You chose: " + playerPiece);
-            System.out.println("The other person gets to go first");
-        }
+        getPlayerChoice(in);
 
         createBoard();
 
         printBoard();
 
-        int playerMove = 0;
+        int playerMove;
         String winner = null;
 
         System.out.println("Please pick a number from the board to mark your piece");

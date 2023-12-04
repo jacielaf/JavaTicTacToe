@@ -3,8 +3,11 @@ package JavaTicTacToe.src.test.java;
 import JavaTicTacToe.src.main.java.org.example.TicTacToe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
 
-import javax.tools.JavaCompiler;
+import java.util.Scanner;
 
 import static JavaTicTacToe.src.main.java.org.example.TicTacToe.board;
 import static JavaTicTacToe.src.main.java.org.example.TicTacToe.createBoard;
@@ -22,6 +25,17 @@ public class TicTacToeTest {
         turn = "X";
         createBoard();
     }
+
+//    @Test
+//    public void testGetPlayerChoice(){
+//        Scanner mockScanner = PowerMockito.mock(Scanner.class);
+//        PowerMockito.when(mockScanner.nextInt()).thenReturn(1);
+//
+//       // TicTacToe ticTacToe = new TicTacToe();
+//        char result = TicTacToe.getPlayerChoice(mockScanner);
+//
+//        assertEquals('X', result);
+//    }
 
     @Test
     public void createBoardTest() throws Exception {
