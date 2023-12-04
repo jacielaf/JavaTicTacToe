@@ -1,4 +1,4 @@
-package JavaTicTacToe.src.main.java.org.example;
+package src.main.java.org.example;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -11,13 +11,9 @@ public class TicTacToe {
     static String turn;
 
     public static void createBoard() {
-
         board = new String[9];
-        int space = 1;
-
         for (int i = 0; i < 9; i++) {
-            board[i] = String.valueOf(space);
-            space++;
+            board[i] = String.valueOf(i + 1);
         }
     }
 
@@ -35,24 +31,27 @@ public class TicTacToe {
         char playerPiece = 0;
         turn = "X";
 
-        //there is a bug in this while loop.  entering a letter will get a mismatch exception
         while (playerPiece == 0) {
             System.out.println("Please select 1 for X or 2 for O to begin playing");
-            playerChoice = in.nextInt();
-            if (playerChoice == 1) {
-                playerPiece = 'X';
-            } else if (playerChoice == 2) {
-                playerPiece = 'O';
+            if (in.hasNextInt()) {
+                playerChoice = in.nextInt();
+                if (playerChoice == 1) {
+                    playerPiece = 'X';
+                } else if (playerChoice == 2) {
+                    playerPiece = 'O';
+                } else {
+                    System.out.println("That is not a valid choice please try again!");
+                }
             } else {
                 System.out.println("That is not a valid choice please try again!");
+                in.next(); // consume the invalid input
             }
         }
 
+        System.out.println("Player X goes first! You chose: " + playerPiece);
         if (playerPiece == 'X') {
-            System.out.println("Player X goes first! You chose: " + playerPiece);
             System.out.println("You get to go first");
         } else {
-            System.out.println("Player X goes first! You chose: " + playerPiece);
             System.out.println("The other person gets to go first");
         }
 
