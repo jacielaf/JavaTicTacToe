@@ -1,19 +1,22 @@
 package src.test.java;
 
-import JavaTicTacToe.src.main.java.org.example.TicTacToe;
+//import JavaTicTacToe.src.main.java.org.example.TicTacToe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
+import src.main.java.org.example.TicTacToe;
 
 import java.util.Scanner;
 
-import static JavaTicTacToe.src.main.java.org.example.TicTacToe.board;
+//import static JavaTicTacToe.src.main.java.org.example.TicTacToe.board;
 
-import static JavaTicTacToe.src.main.java.org.example.TicTacToe.createBoard;
+//import static JavaTicTacToe.src.main.java.org.example.TicTacToe.createBoard;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static src.main.java.org.example.TicTacToe.board;
+import static src.main.java.org.example.TicTacToe.createBoard;
 
 public class TicTacToeTest {
 
@@ -77,16 +80,16 @@ public class TicTacToeTest {
         // Should create a board of size 9
         @Test
         public void test_createBoardSize() {
-            TicTacToe.createBoard();
-            assertEquals(9, TicTacToe.board.length);
+            createBoard();
+            assertEquals(9, board.length);
         }
 
         // Should initialize each element of the board with a string value of its index plus one
         @Test
         public void test_createBoardElements() {
             createBoard();
-            for (int i = 0; i < TicTacToe.board.length; i++) {
-                assertEquals(String.valueOf(i + 1), TicTacToe.board[i]);
+            for (int i = 0; i < board.length; i++) {
+                assertEquals(String.valueOf(i + 1), board[i]);
             }
         }
 
@@ -100,15 +103,15 @@ public class TicTacToeTest {
         @Test
         public void test_createBoardCustomSize() {
             createBoard();
-            assertEquals(9, TicTacToe.board.length);
+            assertEquals(9, board.length);
         }
 
         // Should initialize each element of the board with the correct string value even if the input is not 9
         @Test
         public void test_createBoardCustomElements() {
             createBoard();
-            for (int i = 0; i < TicTacToe.board.length; i++) {
-                assertEquals(String.valueOf(i + 1), TicTacToe.board[i]);
+            for (int i = 0; i < board.length; i++) {
+                assertEquals(String.valueOf(i + 1), board[i]);
             }
         }
 

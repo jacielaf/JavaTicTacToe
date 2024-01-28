@@ -137,6 +137,7 @@ public class TicTacToe {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid choice! Please pick again");
+                in.next();
                 continue;
             }
 
